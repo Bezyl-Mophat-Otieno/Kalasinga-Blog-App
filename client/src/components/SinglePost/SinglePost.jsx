@@ -26,8 +26,8 @@ useEffect(() => {
     <div className="singlePost">
       <div className="singlePostWrapper">
 {singlePost.photo && <img
-          className="singlePostImg"
-          src={singlePost.photo}
+          className="headerImg"
+          src={'https://images.pexels.com/photos/1099217/pexels-photo-1099217.jpeg?auto=compress&cs=tinysrgb&w=600'}
           alt=""
         />}
 

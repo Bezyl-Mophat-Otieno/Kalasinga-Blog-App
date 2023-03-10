@@ -16,14 +16,14 @@ password : {
     type:String,
     required:true,
 },
-profilepic:{
-    type:String,
-    default:""
-},
-role:{
-    type:String,
-    default:'author'
-}
+// profilepic:{
+//     type:String,
+//     default:""
+// },
+// role:{
+//     type:String,
+//     default:'author'
+// }
 
 },
 {timestamps:true}

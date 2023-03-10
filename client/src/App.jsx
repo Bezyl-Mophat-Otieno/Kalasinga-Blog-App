@@ -1,4 +1,3 @@
-import TopBar from './components/topBar/TopBar';
 import Home from './pages/home/Home';
 import Settings from './pages/settings/Settings';
 import Single from './pages/Single/Single';
@@ -11,7 +10,11 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import SharedLayout from './SharedLayout';
 import MyBlogs from './pages/myblogs/MyBlogs'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import { useContext } from 'react';
+import { Context } from './context/Context';
 function App() {
+const { user} = useContext(Context);
   return (
     <BrowserRouter>
       <Routes>
@@ -22,6 +25,7 @@ function App() {
           <Route path='/write' element={<Write />} />
           <Route path='/myblogs' element={<MyBlogs />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/admin/*' element={<AdminDashboard />} />
           <Route path='/singlepost/:id' element={<Single />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/comments/:id' element={<Comments />} />

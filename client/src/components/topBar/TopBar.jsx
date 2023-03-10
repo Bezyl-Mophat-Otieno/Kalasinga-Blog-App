@@ -5,9 +5,11 @@ import Login from '../modals/Login';
 import { useState } from 'react';
 import SearchBar from '../searchbar/SearchBar';
 import Logo from '../../assets/logo.png'
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 function TopBar() {
   const [show, setShow] = useState(false);
-  let user = false;
+  const { user} = useContext(Context);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 const [blogger,setBlogger] = useState(false)
@@ -21,6 +23,9 @@ setBlogger(false)
 setNotBlogger(true)
    }
 
+   const handleLogout = ()=>{
+      localStorage.removeItem('user')
+   }
   return (
     <>
       <div className='top'>
@@ -42,7 +47,7 @@ setNotBlogger(true)
             <Link to='/write' className='link'> <li className='topListItem '> {user && "WRITE"}</li></Link>
             <Link to='/myblogs' className='link'> <li className='topListItem '> {user && "MYBLOGS"}</li></Link>
             <Link to='/' className='link'> <li className='topListItem '> HOME</li></Link>
-            <Link to='#' className='link'>  {user && <li className='topListItem' >Logout</li>} </Link>
+            <Link to='#' className='link'>  {user && <li className='topListItem' onClick={handleLogout}>Logout</li>} </Link>
             <Login handleClose={handleClose} handleShow={handleShow} show={show} />
 
           </ul>
@@ -64,6 +69,7 @@ setNotBlogger(true)
             <ul className="topList">
               <Link to='/register' className='link'><li className="topListItem">REGISTER</li></Link>
               <Link to='/login' className='link'><li className="topListItem">LOGIN</li></Link>
+              <Link to='/admin' className='link'><li className="topListItem">ADMIN</li></Link>
             </ul>
           }
 
